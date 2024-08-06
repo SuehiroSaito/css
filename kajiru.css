@@ -1,3 +1,15 @@
+/* 要素タグ名で指定 */
 h2 {
-    background-color: red;
+    background-color: blue;
+}
+
+/* 分類名(class)指定 */
+.cl_kai{
+    background-color: yellow;
+    transform: rotate(45deg);
+}
+
+/* 個別(ID)で指定 */
+#id_kai{
+    transform: rotate(-10deg);
 }
