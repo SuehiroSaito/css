@@ -1,0 +1,41 @@
+<html>
+かじる enchant.js その２
+<script src='enchant.js'></script>
+<script>
+enchant();
+
+let kuma;
+d = 3
+Kuma = Class.create(Sprite,{
+    initialize: function(x,y){
+        Sprite.call(this, 32, 32);
+        this.x = x; this.y = y;
+        this.image = game.assets["chara1.png"];
+        this.frame = 0
+        this.walk = [0, 1, 0, 2]
+    },
+    onenterframe: function(){
+        this.x += d
+        this.frame = this.walk[game.frame%4]
+        if (this.x > 120){
+            this.scaleX = -1;
+            d = -d
+        }
+        if (this.x < 20){
+            this.scaleX = 1;
+            d = -d
+        }
+    }
+});
+
+window.onload = function() {
+    game = new Game(320,320)
+    game.preload("chara1.png")
+    game.onload = function(){
+        kuma = new Kuma(20, 50)
+        game.rootScene.addChild(kuma)
+    }
+    game.start()
+}
+</script>
+</html>
