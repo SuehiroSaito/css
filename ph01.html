@@ -48,6 +48,9 @@ function create(){
 	console.log("create!!");
 	this.add.image(D_WIDTH/2, D_HEIGHT/2, "sky");// 画面の中心に表示します
 	player = this.physics.add.sprite(240, 80, "tanuki");// プレイヤー
+	let staticGroup = this.physics.add.staticGroup();// 動かない物体をまとめる
+	staticGroup.create(D_WIDTH/2, D_HEIGHT-32, "ground");// 地面
+	this.physics.add.collider(player, staticGroup);// 衝突処理を設定する
 }
 
 function update(){
