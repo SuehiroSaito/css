@@ -1,6 +1,6 @@
 <html>
 <body>
-かじる Phaser その１ 0606
+かじる Phaser その１ 0610
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
@@ -9,20 +9,17 @@ const D_HEIGHT = 320;
 
 // 1, Phaser3の設定データ
 const config = {
-//	type: Phaser.AUTO,
 	width: D_WIDTH,// ゲーム画面の横幅
 	height: D_HEIGHT,// ゲーム画面の高さ
-	antialias: false,
+//	antialias: false,
 	
 	scene: {
 		preload: preload,// 素材の読み込み時の関数
 		create: create,// 画面が作られた時の関数
-		// update: update// 連続実行される関数
 	},
 	physics: {
 		default: "arcade",
 		arcade: {
-			// debug: true,// スプライトに緑の枠を表示します
 			gravity: {y: 300}// 重力の方向とその強さ
 		}
 	}
