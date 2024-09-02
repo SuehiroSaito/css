@@ -1,6 +1,6 @@
 <html>
 <body>
-かじる Phaser その１ 18:34
+かじる Phaser その１ 1841
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
@@ -28,7 +28,7 @@ const config = {
 		default: "arcade",
 		arcade: {
 			// debug: true,// スプライトに緑の枠を表示します
-			gravity: {y: 300}// 重力の方向とその強さ
+			gravity: {y: 3000}// 重力の方向とその強さ
 		}
 	}
 }
@@ -55,7 +55,7 @@ function create(){
 	this.physics.add.collider(player, staticGroup);// 衝突処理を設定する
 }
 
-function update(){
+function update(){ //パラパラアニメ
 	console.log("update!!");
 }
 </script>
