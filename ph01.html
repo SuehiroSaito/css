@@ -1,6 +1,6 @@
 <html>
 <body>
-かじる Phaser その１ 18:32
+かじる Phaser その１ 18:34
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
@@ -13,13 +13,13 @@ const config = {
 	width: D_WIDTH,// ゲーム画面の横幅
 	height: D_HEIGHT,// ゲーム画面の高さ
 	antialias: false,
-	/*
+	
 	scene: {
 		preload: preload,// 素材の読み込み時の関数
 		create: create,// 画面が作られた時の関数
 		update: update// 連続実行される関数
 	},
-	*/
+	
 	fps: {
 		target: 24,// フレームレート
 		forceSetTimeOut: true
@@ -38,10 +38,10 @@ let phaser = new Phaser.Game(config);
 
 function preload(){
 	console.log("preload!!");
-    this.load.image("block", "block.png");
+ //   this.load.image("block", "block.png");
 	this.load.image("ground", "ground.png");
-	this.load.image("pillar", "pillar.png");
-	this.load.image("post", "post.png");
+//	this.load.image("pillar", "pillar.png");
+//	this.load.image("post", "post.png");
 	this.load.image("sky", "sky.png");
 	this.load.image("tanuki", "tanuki.png");
 }
