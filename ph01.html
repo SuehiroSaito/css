@@ -1,6 +1,6 @@
 <html>
 <body>
-かじる Phaser その１ 0610
+かじる Phaser その１ 0616
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
@@ -11,7 +11,6 @@ const D_HEIGHT = 320;
 const config = {
 	width: D_WIDTH,// ゲーム画面の横幅
 	height: D_HEIGHT,// ゲーム画面の高さ
-//	antialias: false,
 	
 	scene: {
 		preload: preload,// 素材の読み込み時の関数
@@ -37,8 +36,10 @@ function preload(){
 function create(){
 	this.add.image(D_WIDTH/2, D_HEIGHT/2, "sky");// 画面の中心に表示します
 	player = this.physics.add.sprite(240, 80, "tanuki");// プレイヤー
+
 	let staticGroup = this.physics.add.staticGroup();// 動かない物体をまとめる
 	staticGroup.create(D_WIDTH/2, D_HEIGHT-32, "ground");// 地面
+
 	this.physics.add.collider(player, staticGroup);// 衝突処理を設定する
 }
 
