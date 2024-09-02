@@ -19,11 +19,12 @@ const config = {
 		create: create,// 画面が作られた時の関数
 		update: update// 連続実行される関数
 	},
-	
+	/*
 	fps: {
 		target: 24,// フレームレート
 		forceSetTimeOut: true
 	},
+	/*
 	physics: {
 		default: "arcade",
 		arcade: {
@@ -50,9 +51,6 @@ function create(){
 	this.physics.add.collider(player, staticGroup);// 衝突処理を設定する
 }
 
-function update(){ //パラパラアニメ
-	console.log("update!!");
-}
 </script>
 </body>
 </html>
