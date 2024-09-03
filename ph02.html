@@ -1,11 +1,12 @@
 <html>
 <body>
-かじる Phaser その１ jimen
+かじる Phaser その２ 1424
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
 const D_WIDTH = 480;
 const D_HEIGHT = 320;
+let player;
 
 // 1, Phaser3の設定データ
 const config = {
@@ -19,14 +20,14 @@ const config = {
 		update: update// 連続実行される関数
 	},
 	fps: {
-		target: 24,// フレームレート
+		target: 24,// 1秒間に24回update
 		forceSetTimeOut: true
 	},
 	physics: {
 		default: "arcade",
 		arcade: {
-			// debug: true,// スプライトに緑の枠を表示します
-			gravity: {y: 300}// 重力の方向とその強さ
+			debug: true,// デバッグモード
+			gravity: {y: 300}// 重力の強さ
 		}
 	}
 }
@@ -36,12 +37,12 @@ let phaser = new Phaser.Game(config);
 
 function preload(){
 	console.log("preload!!");
-    this.load.image("block", "block.png");
-	this.load.image("ground", "ground.png");
-	this.load.image("pillar", "pillar.png");
-	this.load.image("post", "post.png");
-	this.load.image("sky", "sky.png");
-	this.load.image("tanuki", "tanuki.png");
+	this.load.image("block", "./assets/block.png");
+	this.load.image("ground", "./assets/ground.png");
+	this.load.image("pillar", "./assets/pillar.png");
+	this.load.image("post", "./assets/post.png");
+	this.load.image("sky", "./assets/sky.png");
+	this.load.image("tanuki", "./assets/tanuki.png");
 }
 
 function create(){
@@ -50,11 +51,28 @@ function create(){
 	player = this.physics.add.sprite(240, 80, "tanuki");// プレイヤー
 	let staticGroup = this.physics.add.staticGroup();// 動かない物体をまとめる
 	staticGroup.create(D_WIDTH/2, D_HEIGHT-32, "ground");// 地面
+	staticGroup.create(240, 240, "block");// ブロック
+	staticGroup.create(350, 230, "post");// ポスト
+	staticGroup.create(400, 160, "pillar");// 電柱
 	this.physics.add.collider(player, staticGroup);// 衝突処理を設定する
 }
 
 function update(){
 	console.log("update!!");
+	// キーボードの情報を取得
+	let cursors = this.input.keyboard.createCursorKeys();
+	if(cursors.up.isDown){
+		//console.log("Up!!");
+		player.setVelocityY(-200);// 上方向の速度を設定
+	}else if(cursors.left.isDown){
+		//console.log("Left");
+		player.setVelocityX(-200);// 左方向の速度を設定
+	}else if(cursors.right.isDown){
+		//console.log("Right!!");
+		player.setVelocityX(200);// 右方向の速度を設定
+	}else{
+		player.setVelocityX(0);// 横方向の速度を0
+	}
 }
 </script>
 </body>
