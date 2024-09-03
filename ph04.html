@@ -1,6 +1,6 @@
 <html>
 <body>
-かじる Phaser その４ 1952
+かじる Phaser その４ 1955
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
 
 <script>
@@ -59,7 +59,7 @@ function create(){
 
 	let coinGroup = this.physics.add.group();// 動く物体をまとめる
 	coinGroup.create(130, 0, "coin");// コイン1
-	coinGroup.create(190, 0, "coin");// コイン2
+	coinGroup.create(200, 0, "coin");// コイン2
 	coinGroup.create(290, 0, "coin");// コイン3
 	this.physics.add.collider(coinGroup, staticGroup);// 衝突処理を設定する
 
